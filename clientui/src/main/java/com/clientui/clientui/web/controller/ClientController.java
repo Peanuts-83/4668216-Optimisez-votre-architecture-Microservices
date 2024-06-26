@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +28,10 @@ public class ClientController {
         return "Accueil";
     }
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "Hello, world";
+    @RequestMapping("/details-produit/{id}")
+    public String ficheProduit(@PathVariable int id, Model model) {
+        ProductBean produit = produitsProxy.recupererUnProduit(id);
+        model.addAttribute("produit", produit);
+        return "Produit";
     }
 }
