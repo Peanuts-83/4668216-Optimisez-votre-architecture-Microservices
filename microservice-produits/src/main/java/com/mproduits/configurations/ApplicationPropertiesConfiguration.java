@@ -5,7 +5,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("product-config")
+@ConfigurationProperties("my-config")
 @RefreshScope
 public class ApplicationPropertiesConfiguration {
     private int limitDeProduit;
